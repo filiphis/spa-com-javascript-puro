@@ -5,7 +5,7 @@
 
 <!-- Visualize o projeto em: https://filiphis.github.io/spa-com-javascript-puro -->
 
-![Preview To Do List](./design/spa-js-puro.png)
+<!-- ![Preview To Do List](./design/spa-js-puro.png) -->
 
 ## Descrição
 
