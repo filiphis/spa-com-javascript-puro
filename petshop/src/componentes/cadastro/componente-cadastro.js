@@ -1,4 +1,5 @@
-const { eventoEnvia } = require("./cadastro-clientes");
+// const eventoEnvia = require("./cadastro-clientes");
+import eventoEnvia from './cadastro-clientes.js';
 
 const form = document.createElement('form');
 
@@ -21,7 +22,9 @@ form.innerHTML = cadastro;
 
 const inicializaCadastro = () => {
   const container = document.querySelector('[data-container]');
+  console.log('Form: ', form);
   eventoEnvia(form);
+  container.innerHTML = "";
   container.appendChild(form);
   return form;
 }

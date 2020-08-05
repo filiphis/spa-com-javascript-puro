@@ -62,3 +62,5 @@ function verificaSegundoDigito(cpf){
         verificaCPFInvalidos(cpf)
     )
 }
+
+export default validaCPF;

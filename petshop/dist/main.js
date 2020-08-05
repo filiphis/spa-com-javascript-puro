@@ -145,6 +145,30 @@ eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/
 
 /***/ }),
 
+/***/ "./src/componentes/cadastro/cadastro-clientes.js":
+/*!*******************************************************!*\
+  !*** ./src/componentes/cadastro/cadastro-clientes.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _componentes_valida_validaCPF_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../componentes/valida/validaCPF.js */ \"./src/componentes/valida/validaCPF.js\");\n/* harmony import */ var _componentes_valida_validaCPF_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_componentes_valida_validaCPF_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _api_cliente_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../api/cliente.js */ \"./src/api/cliente.js\");\n\n\n\nconst eventoEnvia = (form) => {\n  console.log(form)\n  const formCadastroCliente = document.querySelector(\"[data-form]\")\n  console.log('formCad');\n  console.log(formCadastroCliente);\n  formCadastroCliente.addEventListener(\"submit\",\n    event => {\n      event.preventDefault()\n\n      const nome = event.target.querySelector(\"[data-nome]\").value\n      const cpf = event.target.querySelector(\"[data-cpf]\").value\n\n      if (_componentes_valida_validaCPF_js__WEBPACK_IMPORTED_MODULE_0___default()(cpf)) {\n        Object(_api_cliente_js__WEBPACK_IMPORTED_MODULE_1__[\"cadastrarClientes\"])(nome, cpf)\n      } else {\n        alert('O CPF não é válido')\n      }\n    }\n  )\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (eventoEnvia);\n\n\n//# sourceURL=webpack:///./src/componentes/cadastro/cadastro-clientes.js?");
+
+/***/ }),
+
+/***/ "./src/componentes/cadastro/componente-cadastro.js":
+/*!*********************************************************!*\
+  !*** ./src/componentes/cadastro/componente-cadastro.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _cadastro_clientes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cadastro-clientes.js */ \"./src/componentes/cadastro/cadastro-clientes.js\");\n// const eventoEnvia = require(\"./cadastro-clientes\");\n\n\nconst form = document.createElement('form');\n\nconst cadastro = `\n  <div class=\"container\">\n    <div class=\"form-group\">\n      <label>CPF</label>\n      <input type=\"number\" class=\"form-control\" data-cpf placeholder=\"Digite seu CPF aqui\" />\n    </div>\n    <div class=\"form-group\">\n      <label>Nome</label>\n      <input type=\"text\" class=\"form-control\" data-nome placeholder=\"Digite seu nome aqui\" />\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\">Enviar</button>\n  </div>\n`;\n\nform.innerHTML = cadastro;\n\n\nconst inicializaCadastro = () => {\n  const container = document.querySelector('[data-container]');\n  console.log('Form: ', form);\n  Object(_cadastro_clientes_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(form);\n  container.appendChild(form);\n  return form;\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (inicializaCadastro);\n\n\n//# sourceURL=webpack:///./src/componentes/cadastro/componente-cadastro.js?");
+
+/***/ }),
+
 /***/ "./src/componentes/lista/listagem-cliente.js":
 /*!***************************************************!*\
   !*** ./src/componentes/lista/listagem-cliente.js ***!
@@ -153,7 +177,18 @@ eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_cliente_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/cliente.js */ \"./src/api/cliente.js\");\n/* harmony import */ var _assets_css_clientes_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/css/clientes.css */ \"./src/assets/css/clientes.css\");\n/* harmony import */ var _assets_css_clientes_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_css_clientes_css__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nconst removeCliente = (id) => {\n  if (confirm(\"Deseja deletar o cliente ?\")) {\n    Object(_api_cliente_js__WEBPACK_IMPORTED_MODULE_0__[\"deletaCliente\"])(id)\n    window.location.reload()\n  }\n}\n\nconst corpoTabela = document.querySelector(\"[data-conteudo-tabela]\");\n\nconst exibeCliente = (cpf, nome, id) => {\n  const linha = document.createElement('tr');\n\n  const conteudoLinha = `\n    <td>${cpf}</td>\n    <td>${nome}</td>\n    <button type=\"button\" class=\"btn btn-danger\" onclick=\"removeCliente(${id})\">Excluir</button>\n    <a href=\"./edita/edita-clientes.html?id=${id}\">\n    <button type=\"\"button class=\"btn btn-info\">Editar</button>\n    </a>\n`\n  linha.innerHTML = conteudoLinha;\n  return linha;\n};\n\nObject(_api_cliente_js__WEBPACK_IMPORTED_MODULE_0__[\"listarClientes\"])().then(exibe => {\n    exibe.forEach(indice => {\n      corpoTabela.appendChild(exibeCliente(indice.cpf, indice.nome, indice.id))\n    })\n  }\n\n)\n\n\n//# sourceURL=webpack:///./src/componentes/lista/listagem-cliente.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_cliente_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/cliente.js */ \"./src/api/cliente.js\");\n/* harmony import */ var _assets_css_clientes_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/css/clientes.css */ \"./src/assets/css/clientes.css\");\n/* harmony import */ var _assets_css_clientes_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_css_clientes_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _cadastro_componente_cadastro_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../cadastro/componente-cadastro.js */ \"./src/componentes/cadastro/componente-cadastro.js\");\n\n\n\n\nconst removeCliente = (id) => {\n  if (confirm(\"Deseja deletar o cliente ?\")) {\n    Object(_api_cliente_js__WEBPACK_IMPORTED_MODULE_0__[\"deletaCliente\"])(id)\n    window.location.reload()\n  }\n}\n\nconst conteudo = `\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">CPF</th>\n      <th scope=\"col\">NOME</th>\n      <th scope=\"col\"></th>\n      <th scope=\"col\"><a class=\"btn btn-primary\" data-novoCliente>Novo cliente</a></th>\n    </tr>\n  </thead>\n`;\nconst container = document.querySelector('[data-container]')\nconst tabela = document.createElement('table');\n\ntabela.innerHTML = conteudo;\ntabela.classList.add('table');\ncontainer.appendChild(tabela);\n\nconst novoCliente = document.querySelector('.btn');\n\nnovoCliente.addEventListener('click', () => {\n  Object(_cadastro_componente_cadastro_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n});\n\nconst corpoTabela = document.createElement('tbody')\n\nconst exibeCliente = (cpf, nome, id) => {\n  const linha = document.createElement('tr');\n\n  const conteudoLinha = `\n    <td>${cpf}</td>\n    <td>${nome}</td>\n    <button type=\"button\" class=\"btn btn-danger\" onclick=\"removeCliente(${id})\">Excluir</button>\n    <a href=\"./edita/edita-clientes.html?id=${id}\">\n    <button type=\"\"button class=\"btn btn-info\">Editar</button>\n    </a>\n`\n  linha.innerHTML = conteudoLinha;\n  return linha;\n};\n\nObject(_api_cliente_js__WEBPACK_IMPORTED_MODULE_0__[\"listarClientes\"])().then(exibe => {\n    exibe.forEach(indice => {\n      corpoTabela.appendChild(exibeCliente(indice.cpf, indice.nome, indice.id))\n    })\n  }\n\n)\n\ntabela.appendChild(corpoTabela);\n\n\n//# sourceURL=webpack:///./src/componentes/lista/listagem-cliente.js?");
+
+/***/ }),
+
+/***/ "./src/componentes/valida/validaCPF.js":
+/*!*********************************************!*\
+  !*** ./src/componentes/valida/validaCPF.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function verificaCPFInvalidos(cpf){\n    const cpfsInvalidos = [\n        \"11111111111\",\n        \"22222222222\",\n        \"33333333333\",\n        \"44444444444\",\n        \"55555555555\",\n        \"66666666666\",\n        \"77777777777\",\n        \"88888888888\",\n        \"99999999999\",\n        \"00000000000\"\n    ]\n    return cpfsInvalidos.indexOf(cpf) === -1\n}\n\nfunction somaNumerosCPF(cpf, totalDeDigitos, peso){\n    let soma = 0\n    for(let indice = 1; indice <= totalDeDigitos; indice++){\n        soma += parseInt(cpf.substring(indice - 1, indice)) * ( peso - indice)\n    }\n    return soma\n}\n\nfunction verificaDigito(cpf, totalDeDigitos, peso, digitoDeVerificacao){\n    const soma = somaNumerosCPF(cpf, totalDeDigitos, peso)\n    const resto = (soma * 10) % 11\n    return resto === digitoDeVerificacao\n}\n\nfunction verificaPrimeiroDigito(cpf){\n    const peso = 11\n    const totalDeDigitosPrimeiraParte = 9\n    const digitoDeVerificacao = parseInt(cpf.substring(9, 10))\n\n    return verificaDigito(\n        cpf,\n        totalDeDigitosPrimeiraParte,\n        peso,\n        digitoDeVerificacao\n    )\n\n}\n\nfunction verificaSegundoDigito(cpf){\n    const peso = 12\n    const totalDeDigitosSegundaParte = 10\n    const digitoDeVerificacao = parseInt(cpf.substring(10, 11))\n\n    return verificaDigito(\n        cpf,\n        totalDeDigitosSegundaParte,\n        peso,\n        digitoDeVerificacao\n    )\n}\n\n function validaCPF(cpf){\n    return(\n        verificaPrimeiroDigito(cpf)&&\n        verificaSegundoDigito(cpf)&&\n        verificaCPFInvalidos(cpf)\n    )\n}\n\n\n//# sourceURL=webpack:///./src/componentes/valida/validaCPF.js?");
 
 /***/ })
 
