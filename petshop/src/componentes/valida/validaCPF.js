@@ -50,12 +50,12 @@ function verificaSegundoDigito(cpf){
     return verificaDigito(
         cpf,
         totalDeDigitosSegundaParte,
-        peso, 
+        peso,
         digitoDeVerificacao
     )
 }
 
-function validaCPF(cpf){
+ function validaCPF(cpf){
     return(
         verificaPrimeiroDigito(cpf)&&
         verificaSegundoDigito(cpf)&&
