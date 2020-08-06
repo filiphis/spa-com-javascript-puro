@@ -23,7 +23,7 @@ Projeto desenvolvido durante o curso [Criando uma SPA com JavaScript puro](https
 Clone e acesse o repositorio:
 ```
 git clone https://github.com/filiphis/spa-com-javascript-puro
-cd manipulando-dom-to-do-list
+cd spa-com-javascript-puro
 ```
 
 Instale as dependencias para rodar a API e execute-a. Irá iniciar um servidor na porta 4000.
