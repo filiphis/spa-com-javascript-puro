@@ -1,5 +1,5 @@
 # Criando uma SPA com JavaScript puro
-> **_Status do projeto:_** Em andamento :construction: :hammer_and_wrench:
+> **_Status do projeto:_** Finalizado :heavy_check_mark:
 
 ## Preview
 

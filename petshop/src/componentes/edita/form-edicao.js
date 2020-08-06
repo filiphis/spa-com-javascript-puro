@@ -1,4 +1,4 @@
-const { eventoForm } = require("./edita-cliente");
+import eventoForm from './edita-cliente';
 
 const inicializaFormEdicao = () => {
 
@@ -21,7 +21,9 @@ const inicializaFormEdicao = () => {
 
   form.innerHTML = formEdicao;
 
+
   eventoForm(form);
+
 
   return form;
 }

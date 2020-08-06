@@ -3,6 +3,7 @@ import {
   editaCliente
 } from '../../api/cliente';
 import validaCPF from '../valida/validaCPF';
+import alerta from '../valida/mensagemValida';
 
 const eventoForm = form => {
 
@@ -10,24 +11,15 @@ const eventoForm = form => {
 
   const id = pegaURL.searchParams.get('id')
 
-  const inputCPF = document.querySelector('[data-cpf]')
-  const inputNome = document.querySelector('[data-nome]')
+  const inputCPF = form.querySelector('[data-cpf]')
+  const inputNome = form.querySelector('[data-nome]')
 
   detalhaCliente(id).then(dados => {
     inputCPF.value = dados[0].cpf
     inputNome.value = dados[0].nome
   })
 
-  const alerta = (classe, mensagem) => {
-    const linha = document.createElement('section');
 
-    const conteudoLinha = `
-    <div class="${classe}">${mensagem}</div>
-
-`
-    linha.innerHTML = conteudoLinha;
-    return linha;
-  }
   form.addEventListener('submit', event => {
     event.preventDefault()
 
