@@ -1,7 +1,7 @@
 # Criando uma SPA com JavaScript puro
 > **_Status do projeto:_** Finalizado :heavy_check_mark:
 
-## Preview
+<!-- ## Preview -->
 
 <!-- Visualize o projeto em: https://filiphis.github.io/spa-com-javascript-puro -->
 
@@ -16,6 +16,7 @@ Projeto desenvolvido durante o curso [Criando uma SPA com JavaScript puro](https
 * HTML
 * CSS
 * JS
+* Webpack
 
 <!-- ## Como rodar a aplicação  :arrow_forward:
 
